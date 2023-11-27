@@ -2,7 +2,6 @@ package org.example;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -45,38 +44,10 @@ public class ToppingFileManager {
         }
     }
 
-    //Example usage:
-    public static void main(String[] args) {
-        //Load toppings from file
-        List<Topping> loadedToppings = ToppingFileManager.loadToppings();
-        System.out.println("Loaded Toppings: ");
-        for (Topping topping : loadedToppings){
-            System.out.println(topping);
-        }
-
-        //Regular toppings
-        loadedToppings.add(new Topping("Lettuce", ToppingCategory.REGULAR));
-        loadedToppings.add(new Topping("Peppers", ToppingCategory.REGULAR));
-        loadedToppings.add(new Topping("Onions", ToppingCategory.REGULAR));
-        loadedToppings.add(new Topping("Tomatoes", ToppingCategory.REGULAR));
-        loadedToppings.add(new Topping("Jalepenos", ToppingCategory.REGULAR));
-        loadedToppings.add(new Topping("Cucumbers", ToppingCategory.REGULAR));
-        loadedToppings.add(new Topping("Pickles", ToppingCategory.REGULAR));
-        loadedToppings.add(new Topping("Guacamole", ToppingCategory.REGULAR));
-        loadedToppings.add(new Topping("Mushrooms", ToppingCategory.REGULAR));
-        //Premium toppings
-        loadedToppings.add(new Topping("Steak", ToppingCategory.PREMIUM));
-        loadedToppings.add(new Topping("Ham", ToppingCategory.PREMIUM));
-        loadedToppings.add(new Topping("Salami", ToppingCategory.PREMIUM));
-        loadedToppings.add(new Topping("Roast Beef", ToppingCategory.PREMIUM));
-        loadedToppings.add(new Topping("Chicken", ToppingCategory.PREMIUM));
-        loadedToppings.add(new Topping("Bacon", ToppingCategory.PREMIUM));
+    //toppings file needs to be initialized with all toppings and their type entered at program start
+    //need to be able to read from toppings file when user picks a certain option, we'll need methods for these
 
 
 
 
-        //Save toppings to file
-        ToppingFileManager.saveToppings(loadedToppings);
-        System.out.println("Toppings saved.");
-    }
 }

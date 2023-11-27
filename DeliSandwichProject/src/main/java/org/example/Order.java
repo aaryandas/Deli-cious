@@ -20,16 +20,19 @@ public class Order implements OrderBuilder{
     @Override
     public OrderBuilder addSandwich(Sandwich sandwich) {
         this.sandwichList.add(sandwich);
+        return this;
     }
 
     @Override
     public OrderBuilder addDrink(Drink drink) {
-        return null;
+        this.drinkList.add(drink);
+        return this;
     }
 
     @Override
     public OrderBuilder addChips(Chips chips) {
-        return null;
+        this.chipsList.add(chips);
+        return this;
     }
 
     @Override

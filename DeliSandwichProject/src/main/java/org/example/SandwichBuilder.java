@@ -1,14 +1,13 @@
 package org.example;
 
 public interface SandwichBuilder {
-    Sandwich build();
     SandwichBuilder setSize(int size);
-    SandwichBuilder setBreadType(BreadType breadType);
+    SandwichBuilder setBreadType(String breadType);
     SandwichBuilder setToasted(boolean isToasted);
-    SandwichBuilder addMeat(MeatType meatType);
-    SandwichBuilder addCheese(CheeseType cheeseType);
-    SandwichBuilder addRegularTopping(RegularTopping topping);
-    SandwichBuilder addSauce(SauceType sauceType);
+    SandwichBuilder addMeat(Topping meatType);
+    SandwichBuilder addCheese(Topping cheeseType);
+    SandwichBuilder addRegularTopping(Topping regularTopping);
+    SandwichBuilder addSauce(Topping sauceType);
 
     Sandwich build();
 }

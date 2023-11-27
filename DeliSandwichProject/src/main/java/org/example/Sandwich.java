@@ -3,23 +3,16 @@ package org.example;
 import java.util.ArrayList;
 
 public class Sandwich implements SandwichBuilder{
-    private int size;
-    private BreadType breadType;
-    private boolean isToasted;
-    private List<MeatType> meatTypeList = new ArrayList<>();
-    private List<CheeseType> cheeseTypeList = new ArrayList<>();
-    private List<RegularToppingType> regularToppingTypeList = new ArrayList<>();
-    private List<SauceType> sauceTypeList = new ArrayList<>();
+
 
     @Override
     public SandwichBuilder setSize(int size) {
-        this.size = size;
-        return this;
+        return null;
     }
 
     @Override
-    public SandwichBuilder setBreadType(BreadType breadType) {
-        this.breadType = breadType;
+    public SandwichBuilder setBreadType(String breadType) {
+        return null;
     }
 
     @Override
@@ -28,22 +21,22 @@ public class Sandwich implements SandwichBuilder{
     }
 
     @Override
-    public SandwichBuilder addMeat(MeatType meatType) {
+    public SandwichBuilder addMeat(Topping meatType) {
         return null;
     }
 
     @Override
-    public SandwichBuilder addCheese(CheeseType cheeseType) {
+    public SandwichBuilder addCheese(Topping cheeseType) {
         return null;
     }
 
     @Override
-    public SandwichBuilder addRegularTopping(RegularTopping topping) {
+    public SandwichBuilder addRegularTopping(Topping topping) {
         return null;
     }
 
     @Override
-    public SandwichBuilder addSauce(SauceType sauceType) {
+    public SandwichBuilder addSauce(Topping sauceType) {
         return null;
     }
 

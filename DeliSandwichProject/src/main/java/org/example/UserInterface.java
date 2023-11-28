@@ -32,11 +32,12 @@ public class UserInterface {
         }
     }
 
+
     private void displayOrderScreen() {
-        System.out.println("********** ORDER SCREEN **********");
-        System.out.println("1. Sandwich");
+        System.out.println("********** ORDER HERE **********");
+        System.out.println("1. Sandwiches");
         System.out.println("2. Add-ons");
-        System.out.println("3. Drink");
+        System.out.println("3. Drinks");
         System.out.println("4. Chips");
         System.out.println("5. Checkout");
         System.out.println("6. Cancel order");
@@ -53,6 +54,10 @@ public class UserInterface {
                 break;
             case 2:
                 displayAddOnScreen();
+                displayPremiumToppings();
+                displayRegularToppings();
+                displaySauceOptions();
+                displaySideOptions();
                 break;
             case 3:
                 displayDrinkScreen();
@@ -62,6 +67,7 @@ public class UserInterface {
                 break;
             case 5:
                 displayCheckoutScreen();
+                displayReceiptScreen();
                 break;
             case 6:
                 cancelOrder();
@@ -76,27 +82,55 @@ public class UserInterface {
     private void exitProgram() {
     }
 
+    Scanner scanner = new Scanner(System.in);
+
     private void displaySandwichScreen() {
-        System.out.println("Select sandwich size");
-        System.out.println("Select bread type");
+        int sandwichSize;
+        String breadType;
+        boolean toastedOption;
+
+        System.out.println("********** BUILD YOUR SANDWICH **********");
+        displaySandwichSize();
+        System.out.println("Select desired size");
+        sandwichSize = scanner.nextInt();
+        displayBreadOptions();
+        System.out.println("Select desired bread type ");
+        breadType = scanner.nextLine();
+        displayToastOptions();
         System.out.println("Toasted or untoasted?");
+        toastedOption = scanner.nextBoolean();
     }
 
     private void displayAddOnScreen() {
+        String regularToppings;
+        String premiumToppings;
+
         System.out.println("********** ADD ONS **********");
-        System.out.println("Add regular toppings");
-        System.out.println("Add premium toppings");
+        displayRegularToppings();
+        System.out.println("Select desired free toppings");
+        regularToppings = scanner.nextLine();
+        displayPremiumToppings();
+        System.out.println("Select desired premium toppings");
+        premiumToppings = scanner.nextLine();
     }
 
     private void displayDrinkScreen() {
-        System.out.println("Add a drink");
-        System.out.println("Select drink size");
-        System.out.println("Select drink flavor");
+        String drinkType;
+        char drinkSize;
+
+        System.out.println("Select desired drink");
+        drinkType= scanner.nextLine();
+        System.out.println("Select drink size: S, M, L");
+        drinkSize = scanner.nextLine().charAt(0);
+
     }
 
     private void displayChipsScreen() {
-        System.out.println("Add chips");
-        System.out.println("Select chip flavor");
+        String chipType;
+
+        System.out.println("Select your desired chips");
+        chipType = scanner.nextLine();
+
     }
 
     private void displayCheckoutScreen() {
@@ -109,31 +143,29 @@ public class UserInterface {
         System.out.println("Canceling selection.");
     }
 
+
     private void displaySandwichSize() {
-        System.out.println("Select sandwich size: 4in, 8in, 12in");
+        System.out.println("Sandwich sizes: 4in, 8in, 12in");
     }
 
     private void displayBreadOptions() {
-        System.out.println("Select your bread option: white, wheat, rye, wrap");
+        System.out.println("Bread options: white, wheat, rye, wrap");
     }
 
+    private void displayToastOptions() { System.out.println("Toasted or untoasted?");}
+
     private void displayPremiumToppings() {
-        System.out.println("Select from the premium toppings");
+        System.out.println("Premium toppings:");
     }
 
     private void displayRegularToppings() {
-        System.out.println("Select from the regular toppings")
+        System.out.println("Regular toppings: lettuce, peppers, onions, tomatoes, jalapenos, cucumbers, pickles, guacamole, mushrooms");
     }
 
-    private void displaySauceOptions() {
-        System.out.println("Select from the sauce options");
-    }
+    private void displaySauceOptions() { System.out.println("Sauce options:mayo, mustard, ketchup, ranch, thousand island, vinaigrette");}
 
-    private void displayToastOptions() {
-        System.out.println("Select toasted or untoasted");
-    }
+    private void displaySideOptions() { System.out.println("Side Options: au jus or sauce");}
 
-    private void displayReceiptScreen() {
-        System.out.println("Receipt display method working");
-    }
+    private void displayReceiptScreen() { System.out.println("Here are your order details:     come again soon!");}
+
 }

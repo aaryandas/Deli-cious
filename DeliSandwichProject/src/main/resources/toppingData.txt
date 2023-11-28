@@ -1,0 +1,17 @@
+Lettuce, REGULAR
+Peppers, REGULAR
+Onions, REGULAR
+Tomatoes, REGULAR
+Jalapeños, REGULAR
+Cucumbers, REGULAR
+Pickles, REGULAR
+Guacamole, REGULAR
+Mushrooms, REGULAR
+Mayo, REGULAR
+Mustard, REGULAR
+Ketchup, REGULAR
+Ranch, REGULAR
+Thousand Islands, REGULAR
+Vinaigrette, REGULAR
+Au Jus, REGULAR
+Sauce, REGULAR

@@ -19,6 +19,12 @@ public class Topping {
     }
 
 
+
+    public String getCategory() {
+        return String.valueOf(category);
+    }
+
+
     //Debug
     @Override
     public String toString() {
@@ -27,4 +33,8 @@ public class Topping {
                 ", category=" + category +
                 '}';
     }
+
 }
+
+}
+

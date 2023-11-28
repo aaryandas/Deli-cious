@@ -33,8 +33,6 @@ public class UserInterface {
     }
 
     private void displayOrderScreen() {
-        // when they have completed the order, application should display order details
-        // including the list of sandwiches that were ordered to verify the order is correct
         System.out.println("********** ORDER SCREEN **********");
         System.out.println("1. Sandwich");
         System.out.println("2. Add-ons");
@@ -49,6 +47,9 @@ public class UserInterface {
         switch (choice) {
             case 1:
                 displaySandwichScreen();
+                displaySandwichSize();
+                displayBreadOptions();
+                displayToastOptions();
                 break;
             case 2:
                 displayAddOnScreen();
@@ -99,12 +100,13 @@ public class UserInterface {
     }
 
     private void displayCheckoutScreen() {
-        //
-        System.out.println("checkout screen working");
+        //when they have completed the order, application should display order details
+        // including the list of sandwiches that were ordered to verify the order is correct
+        System.out.println("Order details. Would you like to confirm?");
     }
 
     private void cancelOrder() {
-        System.out.println("cancel order method working");
+        System.out.println("Canceling selection.");
     }
 
     private void displaySandwichSize() {
@@ -116,7 +118,7 @@ public class UserInterface {
     }
 
     private void displayPremiumToppings() {
-        System.out.println("Select your premium toppings");
+        System.out.println("Select from the premium toppings");
     }
 
     private void displayRegularToppings() {
@@ -128,7 +130,7 @@ public class UserInterface {
     }
 
     private void displayToastOptions() {
-        System.out.println("Select from toasted or untoasted");
+        System.out.println("Select toasted or untoasted");
     }
 
     private void displayReceiptScreen() {

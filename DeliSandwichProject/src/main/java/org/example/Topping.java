@@ -14,9 +14,16 @@ public class Topping {
         return name;
     }
 
+    public ToppingCategory getCategory() {
+        return category;
+    }
+
+
+
     public String getCategory() {
         return String.valueOf(category);
     }
+
 
     //Debug
     @Override
@@ -26,4 +33,8 @@ public class Topping {
                 ", category=" + category +
                 '}';
     }
+
 }
+
+}
+

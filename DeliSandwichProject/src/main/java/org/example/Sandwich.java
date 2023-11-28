@@ -1,5 +1,8 @@
 package org.example;
 
+//Attributes: size, breadType, toasted (boolean), toppings (List of ToppingSelection)
+//Methods: addTopping(), removeTopping()
+
 import java.util.ArrayList;
 
 public class Sandwich implements SandwichBuilder{

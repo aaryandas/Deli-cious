@@ -119,7 +119,7 @@ public class UserInterface {
         char drinkSize;
 
         System.out.println("Select desired drink");
-        drinkType= scanner.nextLine();
+        drinkType = scanner.nextLine();
         System.out.println("Select drink size: S, M, L");
         drinkSize = scanner.nextLine().charAt(0);
 
@@ -145,14 +145,43 @@ public class UserInterface {
 
 
     private void displaySandwichSize() {
+        // converting users input to corresponding enum using "valueOf"
         System.out.println("Sandwich sizes: 4in, 8in, 12in");
+        for (Size size : Size.values()) {
+            System.out.println(size.name());
+        }
+
+        String userChoice = scanner.nextLine().toUpperCase();
+
+        try {
+            Size selectedSize = Size.valueOf(userChoice);
+            System.out.println("You selected size: " + selectedSize);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid size. Please select from the options.");
+            displaySandwichSize();
+        }
     }
 
     private void displayBreadOptions() {
         System.out.println("Bread options: white, wheat, rye, wrap");
+        for (BreadType breadType : BreadType.values()) {
+            System.out.println(breadType.name());
+        }
+        String userChoice = scanner.nextLine().toUpperCase();
+
+        try {
+            BreadType selectedBreadType = BreadType.valueOf(userChoice);
+            System.out.println("You selected: " + selectedBreadType);
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid bread type. Please select from the options.");
+            displayBreadOptions();
+        }
     }
 
-    private void displayToastOptions() { System.out.println("Toasted or untoasted?");}
+    private void displayToastOptions() {
+        System.out.println("Toasted or untoasted?");
+    }
 
     private void displayPremiumToppings() {
         System.out.println("Premium toppings:");
@@ -162,10 +191,16 @@ public class UserInterface {
         System.out.println("Regular toppings: lettuce, peppers, onions, tomatoes, jalapenos, cucumbers, pickles, guacamole, mushrooms");
     }
 
-    private void displaySauceOptions() { System.out.println("Sauce options:mayo, mustard, ketchup, ranch, thousand island, vinaigrette");}
+    private void displaySauceOptions() {
+        System.out.println("Sauce options:mayo, mustard, ketchup, ranch, thousand island, vinaigrette");
+    }
 
-    private void displaySideOptions() { System.out.println("Side Options: au jus or sauce");}
+    private void displaySideOptions() {
+        System.out.println("Side Options: au jus or sauce");
+    }
 
-    private void displayReceiptScreen() { System.out.println("Here are your order details:     come again soon!");}
+    private void displayReceiptScreen() {
+        System.out.println("Here are your order details:     come again soon!");
+    }
 
 }

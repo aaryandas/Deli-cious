@@ -13,7 +13,7 @@ public class RegularTopping extends Topping {
     }
 
     @Override
-    public double getPrice(int sandwichSize) {
+    public double getPrice(Size sandwichSize) {
         return 0;
     }
 

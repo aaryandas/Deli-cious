@@ -38,11 +38,10 @@ public class UserInterface {
     private void displayOrderScreen() throws IOException {
         System.out.println("********** ORDER HERE **********");
         System.out.println("1. Sandwiches");
-        System.out.println("2. Add-ons");
-        System.out.println("3. Drinks");
-        System.out.println("4. Chips");
-        System.out.println("5. Checkout");
-        System.out.println("6. Cancel order");
+        System.out.println("2. Drinks");
+        System.out.println("3. Chips");
+        System.out.println("4. Checkout");
+        System.out.println("5. Cancel order");
 
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
@@ -72,11 +71,19 @@ public class UserInterface {
     private void displaySandwichScreen() {
         System.out.println("********** BUILD YOUR SANDWICH **********");
             Scanner scanner = new Scanner(System.in);
-            System.out.println("What type of bread do you want?");
-            System.out.println("Bread Options: White, Wheat, Rye, Wrap");
-            String breadType = scanner.nextLine();
-            System.out.println("Please select sandwich size (4/8/12 inches): ");
-            int sandwichSize = scanner.nextInt();
+
+            displayBreadOptions();
+            String breadChoice = scanner.nextLine().toUpperCase();
+            BreadType selectedBreadType = BreadType.valueOf(breadChoice);
+            System.out.println("You selected: " + selectedBreadType);
+
+
+            displaySandwichSize();
+            String sizeChoice = scanner.nextLine().toUpperCase();
+            Size selectedSize = Size.valueOf(sizeChoice);
+            System.out.println("You selected size: " + selectedSize);
+
+
             System.out.println("Do you want premium meat? (yes/no): ");
             boolean premiumMeat = "yes".equalsIgnoreCase(scanner.next());
             String meatType = "";
@@ -101,7 +108,7 @@ public class UserInterface {
                 System.out.println("Do you want extra cheese? (yes/no): ");
                 extraCheese = "yes".equalsIgnoreCase(scanner.next());
             }
-            Sandwich sandwich = new Sandwich(sandwichSize, breadType);
+            Sandwich sandwich = new Sandwich(selectedSize, selectedBreadType);
             if (premiumMeat) {
                 PremiumTopping premiumMeatTopping = new PremiumTopping("Premium Meat", PremiumToppingType.MEAT);
                 sandwich.addTopping(premiumMeatTopping);
@@ -147,26 +154,45 @@ public class UserInterface {
                     }
                 }
             }
-            System.out.println("Do you want to add sauces? (yes/no): ");
-            boolean addSauces = "yes".equalsIgnoreCase(scanner.next());
-            if (addSauces) {
-                System.out.println("Enter sauce type (e.g., mayo, mustard, ketchup, etc.): ");
-                String sauceType = scanner.next();
-                Sauces sauce = Sauces.valueOf(sauceType.toUpperCase());
-
-                if (sauce != null) {
-                    RegularTopping sauceTopping = new RegularTopping(sauce.name());
-                    sandwich.addTopping(sauceTopping);
-                }
+        boolean addingSauces = true;
+        while (addingSauces) {
+            System.out.println("Enter a sauce to add (type 'done' to finish): ");
+            displaySauceOptions();
+            String sauce = scanner.next();
+            if (sauce.equalsIgnoreCase("done")) {
+                addingSauces = false;
+            } else {
+                RegularTopping topping = new RegularTopping(sauce);
+                sandwich.addTopping(topping);
             }
-            checkout.addSandwich(sandwich);
         }
-
-    /*private void displayAddOnScreen() {
-        System.out.println("********** ADD ONS **********");
-        displayRegularToppings();
-        displayPremiumToppings();
-    }*/
+        boolean toasting = true;
+        while (toasting) {
+            System.out.println("Would you like your sandwich toasted? (Y/N):");
+            Scanner toastInput = new Scanner(System.in);
+            String toast = toastInput.nextLine();
+            if(toast.equalsIgnoreCase("Y")){
+                sandwich.isToasted();
+                toasting = false;
+            } else{
+                System.out.println("Your sandwich isn't toasted");
+            }
+        }
+        boolean addingSides = true;
+        while (addingSides) {
+            System.out.println("Enter a side to add (type 'done' to finish): ");
+            displaySideOptions();
+            String sides = scanner.next();
+            if (sides.equalsIgnoreCase("done")) {
+                addingSides = false;
+            } else {
+                RegularTopping topping = new RegularTopping(sides);
+                sandwich.addTopping(topping);
+            }
+        }
+        System.out.println("Sandwich added to order!");
+            checkout.addSandwich(sandwich);
+    }
 
     private void displayDrinkScreen() {
         Scanner scanner = new Scanner(System.in);
@@ -265,24 +291,11 @@ public class UserInterface {
         System.out.println("Canceling selection.");
     }
 
-    /*private void displaySandwichSize() {
+    private void displaySandwichSize() {
         Scanner scanner = new Scanner(System.in);
 
         // converting users input to corresponding enum using "valueOf"
-        System.out.println("Sandwich sizes: 4in, 8in, 12in");
-        for (Size size : Size.values()) {
-            System.out.println(size.name());
-        }
-
-        String userChoice = scanner.nextLine().toUpperCase();
-
-        try {
-            Size selectedSize = Size.valueOf(userChoice);
-            System.out.println("You selected size: " + selectedSize);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Invalid size. Please select from the options.");
-            displaySandwichSize();
-        }
+        System.out.println("Sandwich sizes: 4in, 8in, 12in (enter as four, eight, or twelve)");
     }
 
     private void displayBreadOptions() {
@@ -291,30 +304,6 @@ public class UserInterface {
         System.out.println("Bread options: ");
         for (BreadType breadType : BreadType.values()) {
             System.out.println(breadType.name());
-        }
-        String userChoice = scanner.nextLine().toUpperCase();
-
-        try {
-            BreadType selectedBreadType = BreadType.valueOf(userChoice);
-            System.out.println("You selected: " + selectedBreadType);
-
-        } catch (IllegalArgumentException e) {
-            System.out.println("Invalid bread type. Please select from the options.");
-            displayBreadOptions();
-        }
-    }
-
-    private void displayToastOptions() {
-        Scanner scanner = new Scanner(System.in);
-        boolean isRunning = true;
-        while(isRunning){
-            try{
-                System.out.println("Would you like your sandwich toasted? (Y/N)");
-                String choice = scanner.nextLine();
-                if(choice.equalsIgnoreCase("y")){
-
-                }
-            }
         }
     }
 
@@ -327,12 +316,11 @@ public class UserInterface {
     }
 
     private void displaySauceOptions() {
-        System.out.println("Sauce options:mayo, mustard, ketchup, ranch, thousand island, vinaigrette");
+        System.out.println("Sauce options: mayo, mustard, ketchup, ranch, thousand island, vinaigrette");
     }
 
     private void displaySideOptions() {
         System.out.println("Side Options: au jus or sauce");
-    }*/
-
+    }
 
 }

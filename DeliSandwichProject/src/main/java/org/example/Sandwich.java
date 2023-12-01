@@ -3,21 +3,21 @@ package org.example;
 import java.util.ArrayList;
 
 public class Sandwich{
-    private int size;
-    private String breadType;
+    private Size size;
+    private BreadType breadType;
     private ArrayList<Topping> toppings = new ArrayList<>();
     private boolean isToasted;
 
-    public Sandwich(int sandwichSize, String breadType) {
+    public Sandwich(Size sandwichSize, BreadType breadType) {
         this.size = sandwichSize;
         this.breadType = breadType;
     }
 
-    public int getSize() {
+    public Size getSize() {
         return size;
     }
 
-    public String getBreadType() {
+    public BreadType getBreadType() {
         return breadType;
     }
     public ArrayList<Topping> getToppings() {
@@ -46,13 +46,13 @@ public class Sandwich{
     public double getSandwichBasePrice() {
         double basePrice;
         switch (size) {
-            case 4:
+            case SMALL:
                 basePrice = 5.50;
                 break;
-            case 8:
+            case MEDIUM:
                 basePrice = 7.00;
                 break;
-            case 12:
+            case LARGE:
                 basePrice = 8.50;
                 break;
             default:

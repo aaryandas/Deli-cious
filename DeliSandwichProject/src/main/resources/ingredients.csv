@@ -1,4 +1,8 @@
-Name,Type,BaseCost
+Name,Type,Cost
+White,Bread,0.00
+Wheat,Bread,0.00
+Rye,Bread,0.00
+Wrap,Bread,0
 Steak,Meat,1.00
 Ham,Meat,1.00
 Salami,Meat,1.00
@@ -26,3 +30,6 @@ Thousand Island,Sauce,0.00
 Vinaigrette,Sauce,0.00
 Au Jus,Side,0.00
 Sauce,Side,0.00
+Extra Meat,Meat,0.50
+Extra Cheese,Cheese,0.30
+,,

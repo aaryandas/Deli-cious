@@ -1,0 +1,28 @@
+Name,Type,BaseCost
+Steak,Meat,1.00
+Ham,Meat,1.00
+Salami,Meat,1.00
+Roast Beef,Meat,1.00
+Chicken,Meat,1.00
+Bacon,Meat,1.00
+American,Cheese,0.75
+Provolone,Cheese,0.75
+Cheddar,Cheese,0.75
+Swiss,Cheese,0.00
+Lettuce,Regular,0.00
+Peppers,Regular,0.00
+Onions,Regular,0.00
+Tomatoes,Regular,0.00
+Jalapenos,Regular,0.00
+Cucumbers,Regular,0.00
+Pickles,Regular,0.00
+Guacamole,Regular,0.00
+Mushrooms,Regular,0.00
+Mayo,Sauce,0.00
+Mustard,Sauce,0.00
+Ketchup,Sauce,0.00
+Ranch,Sauce,0.00
+Thousand Island,Sauce,0.00
+Vinaigrette,Sauce,0.00
+Au Jus,Side,0.00
+Sauce,Side,0.00
